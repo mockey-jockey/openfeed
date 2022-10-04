@@ -1,38 +1,162 @@
-.App {
-  text-align: center;
+.ant-layout-header {
+  height: 44px;
+  padding: 0 30px;
+  color: rgba(0, 0, 0, 0.85);
+  line-height: 44px;
+  box-shadow: 0 2px 4px rgb(18 52 77 / 6%);
+  background: white;
+  z-index: 810;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.ant-layout-sider {
+  position: relative;
+  transition: all 0.2s;
+  height: calc(100vh - 44px);
+  background: white;
+  width: 350px !important;
+  min-width: 350px !important;
+  max-width: 350px !important;
+  flex: 0 0 350px !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.ant-layout-content {
+  width: calc(100vh - 350px);
+  padding: 10px;
+  display: flex;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.messageContent {
+  width: 100%;
+  height: 100%;
+}
+
+.messageInfo {
+  width: 70%;
+  height: 100%;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #ebeffe;
+}
+.messageHeight {
+  height: calc(100% - 62px);
+  display: flex;
+}
+.contentMsg {
+  padding: 30px;
+}
+.feedbackMsg {
+  font-size: large;
+  padding: 30px;
+  border: solid 1px rgba(9,30,66,.12);
+  border-radius: 8px;
+}
+.selectCategory {
+  height: 62px;
+  padding: 8px;
+  border-bottom: solid 1px rgba(9,30,66,.12);
+  box-shadow: 0 2px 4px rgb(18 52 77 / 6%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.feedbacks {
+  height: calc(100vh - 44px - 62px);
+  overflow: auto;
+}
+
+.footer {
+  height: 62px;
+  padding: 8px;
+  border-top: solid 1px rgba(9,30,66,.12);
+  box-shadow: 0 2px 4px rgb(18 52 77 / 6%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  bottom: 0;
+}
+
+.messageActions {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 0;
+}
+
+.userInfo {
+  margin-left: 10px;
+  width: 30%;
+  height: 100%;
+}
+
+.userInfo .ant-card-body {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.ant-result-extra {
   display: flex;
   flex-direction: column;
+}
+
+.feedbacks-filter {
+  color: rgba(0, 0, 0, 0.85);
+  transition: all 0.3s;
+}
+
+.time {
+  padding-right: 8px;
+  font-size: 12px;
+  line-height: 18px;
+  color: #ccc;
+  white-space: nowrap;
+  cursor: auto;
+  margin-bottom: 5px;
+  line-height: 1.5715;
+}
+
+.timer-tag {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.center {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.text-style {
+  font-size: 18px;
+  /* color: #40a9ff; */
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.subscribe-list {
+  position: relative;
+  display: flex;
+}
+
+.unlock-content {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  backdrop-filter: blur(10px);
+}
+
+.flex {
+  display: flex;
 }
