@@ -1,15 +1,12 @@
 import React from 'react';
-import { Layout, Select, List, Avatar, Tag, Button, Card, Dropdown, Menu, message, Tooltip, Input, Space, Badge, Typography } from 'antd';
+import { Layout, List, Avatar, Tag, Button, Card, Dropdown, Menu, message, Tooltip, Input, Space, Badge, Typography } from 'antd';
 import { PlusOutlined, SoundOutlined, DownloadOutlined, MenuOutlined, FilterOutlined, LockFilled } from '@ant-design/icons';
-const { Header, Sider, Content } = Layout;
-const { Option } = Select;
+import HeaderComponent from './header';
+const { Sider, Content } = Layout;
 const { Title } = Typography;
 function Home() {
   const [isAddEmail, setIsAddEmail] = React.useState(false);
   const [isAddPhone, setIsAddPhone] = React.useState(false);
-  const handleChange = (value: string) => {
-    console.log(`selected ${value}`);
-  };
   const onClick = ({ key }) => {
     message.info(`Click on item ${key}`);
   };
@@ -67,10 +64,7 @@ function Home() {
   const data = [{"gender":"female","name":{"title":"Ms","first":"Minttu","last":"Eskola"},"email":"minttu.eskola@example.com","picture":{"large":"https://randomuser.me/api/portraits/women/25.jpg","medium":"https://randomuser.me/api/portraits/med/women/25.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/25.jpg"},"nat":"FI"},{"gender":"female","name":{"title":"Ms","first":"Frida","last":"Rolón"},"email":"frida.rolon@example.com","picture":{"large":"https://randomuser.me/api/portraits/women/21.jpg","medium":"https://randomuser.me/api/portraits/med/women/21.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/21.jpg"},"nat":"MX"},{"gender":"male","name":{"title":"Monsieur","first":"Gustav","last":"Brunet"},"email":"gustav.brunet@example.com","picture":{"large":"https://randomuser.me/api/portraits/men/15.jpg","medium":"https://randomuser.me/api/portraits/med/men/15.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/men/15.jpg"},"nat":"CH"},{"gender":"female","name":{"title":"Ms","first":"Lourdes","last":"Morales"},"email":"lourdes.morales@example.com","picture":{"large":"https://randomuser.me/api/portraits/women/49.jpg","medium":"https://randomuser.me/api/portraits/med/women/49.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/49.jpg"},"nat":"ES"},{"gender":"female","name":{"title":"Miss","first":"Denira","last":"Nunes"},"status": true,"email":"denira.nunes@example.com","picture":{"large":"https://randomuser.me/api/portraits/women/20.jpg","medium":"https://randomuser.me/api/portraits/med/women/20.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/20.jpg"},"nat":"BR"},{"gender":"male","name":{"title":"Mr","first":"Wesley","last":"Fields"},"email":"wesley.fields@example.com","picture":{"large":"https://randomuser.me/api/portraits/men/89.jpg","medium":"https://randomuser.me/api/portraits/med/men/89.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/men/89.jpg"},"nat":"AU"},{"gender":"female","name":{"title":"Ms","first":"Kimberly","last":"Shaw"},"email":"kimberly.shaw@example.com","picture":{"large":"https://randomuser.me/api/portraits/women/12.jpg","medium":"https://randomuser.me/api/portraits/med/women/12.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/12.jpg"},"nat":"GB"},{"gender":"male","name":{"title":"Mr","first":"Toby","last":"Singh"},"email":"toby.singh@example.com","picture":{"large":"https://randomuser.me/api/portraits/men/16.jpg","medium":"https://randomuser.me/api/portraits/med/men/16.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/men/16.jpg"},"nat":"NZ"},{"gender":"male","name":{"title":"Mr","first":"Christian","last":"Kristensen"},"email":"christian.kristensen@example.com","picture":{"large":"https://randomuser.me/api/portraits/men/30.jpg","medium":"https://randomuser.me/api/portraits/med/men/30.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/men/30.jpg"},"nat":"DK"},{"gender":"female","name":{"title":"Mrs","first":"Helene","last":"Sandmann"},"email":"helene.sandmann@example.com","picture":{"large":"https://randomuser.me/api/portraits/women/68.jpg","medium":"https://randomuser.me/api/portraits/med/women/68.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/68.jpg"},"nat":"DE"}]
   return (
       <Layout>
-        <Header>
-          <Title level={3} style={{margin:0}}>Header</Title>
-          <Tag color="gold"><LockFilled /> Unlock your potential with a Pro Membership</Tag>
-        </Header>
+        <HeaderComponent />
         <Layout>
           <Sider>
             <div className="selectCategory">
