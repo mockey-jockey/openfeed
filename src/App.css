@@ -160,3 +160,24 @@
 .flex {
   display: flex;
 }
+
+.settings {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 44px);
+}
+
+.customize {
+  width: 70%;
+  margin: 20px;
+  margin-top: 0;
+}
+
+.customize-preview {
+  width: 30%;
+  border-left: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.site-page-header {
+  border-bottom: 1px solid rgb(235, 237, 240);
+}
