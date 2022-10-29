@@ -13,9 +13,9 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path='/' element={<Home />}></Route>
-        <Route exact path='/settings' element={<Settings />}></Route>
-        <Route exact path='/domain' element={<Domain />}></Route>
+        <Route exact path='/' element={<Domain />}></Route>
+        <Route path='/admin' element={<Home />}></Route>
+        <Route path='/settings' element={<Settings />}></Route>
       </Routes>
     </Router>
   );

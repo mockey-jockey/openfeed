@@ -1,15 +1,90 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Layout, List, Avatar, Tag, Button, Card, Dropdown, Menu, message, Tooltip, Input, Space, Badge, Typography } from 'antd';
 import { PlusOutlined, SoundOutlined, DownloadOutlined, MenuOutlined, FilterOutlined, LockFilled } from '@ant-design/icons';
 import HeaderComponent from './header';
+import axios from 'axios';
 const { Sider, Content } = Layout;
 const { Title } = Typography;
 function Home() {
-  const [isAddEmail, setIsAddEmail] = React.useState(false);
-  const [isAddPhone, setIsAddPhone] = React.useState(false);
+  const [isAddEmail, setIsAddEmail] = useState(false);
+  const [isAddPhone, setIsAddPhone] = useState(false);
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const onClick = ({ key }) => {
     message.info(`Click on item ${key}`);
   };
+  // const validateMessages = {
+  //   required: '${label} is required!',
+  //   types: {
+  //     email: '${label} is not a valid email!',
+  //     number: '${label} is not a valid number!',
+  //   },
+  //   number: {
+  //     range: '${label} must be between ${min} and ${max}',
+  //   },
+  // };
+
+  useEffect(() => {
+    var config1 = {
+        method: 'get',
+        url: 'https://aun7i01xd6.execute-api.us-east-1.amazonaws.com/dev/customers?customer-id=07609871-c120-43ab-a917-8dac829e22bb',
+        headers: { }
+      };
+      
+    axios(config1)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+    var config = {
+        method: 'get',
+        url: 'https://aun7i01xd6.execute-api.us-east-1.amazonaws.com/dev/feedback?customer-id=07609871-c120-43ab-a917-8dac829e22bb',
+        headers: { }
+      };
+      
+    axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }, []);
+
+  const addEmail = () => {
+    var config = {
+      method: 'put',
+      url: `https://aun7i01xd6.execute-api.us-east-1.amazonaws.com/dev/customers?customer-id=07609871-c120-43ab-a917-8dac829e22bb&email=${email}`,
+      headers: { }
+    };
+      
+    axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+      setIsAddEmail(false);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
+  const addPhone = () => {
+    var config = {
+      method: 'put',
+      url: `https://aun7i01xd6.execute-api.us-east-1.amazonaws.com/dev/customers?customer-id=07609871-c120-43ab-a917-8dac829e22bb&phone=${phone}`,
+      headers: { }
+    };
+    axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+      setIsAddPhone(false);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
   
   const menu = (
     <Menu
@@ -166,8 +241,8 @@ function Home() {
                   <span>Email</span> &nbsp;&nbsp;&nbsp;
                   {!isAddEmail && <Button type="link" onClick={() => setIsAddEmail(true)}>Add Email</Button>}
                   {isAddEmail && <Input.Group compact>
-                    <Input style={{ width: 'calc(100% - 80px)' }} placeholder="Enter Email" />
-                    <Button type="primary" onClick={() => setIsAddEmail(false)}>Submit</Button>
+                    <Input style={{ width: 'calc(100% - 80px)' }} status="" value={email} placeholder="Enter Email" onChange={(e) => setEmail(e.target.value)}/>
+                    <Button type="primary" onClick={addEmail}>Submit</Button>
                   </Input.Group>}
                 </div> 
                 <br/>
@@ -175,8 +250,8 @@ function Home() {
                   <span>Phone</span> &nbsp;
                   {!isAddPhone && <Button type="link" onClick={() => setIsAddPhone(true)}>Add Phone</Button>}
                   {isAddPhone && <Input.Group compact>
-                    <Input style={{ width: 'calc(100% - 80px)' }} placeholder="Enter Phone" />
-                    <Button type="primary" onClick={() => setIsAddPhone(false)}>Submit</Button>
+                    <Input style={{ width: 'calc(100% - 80px)' }} value={phone} placeholder="Enter Phone" onChange={(e) => setPhone(e.target.value)}/>
+                    <Button type="primary" onClick={addPhone}>Submit</Button>
                   </Input.Group>}
                 </div> 
               </Card>
