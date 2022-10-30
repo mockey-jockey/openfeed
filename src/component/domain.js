@@ -2,11 +2,17 @@ import React, {useState} from 'react';
 import { Layout, Input,Typography, Button, Result } from 'antd';
 import { ThunderboltOutlined } from '@ant-design/icons';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 const { Title } = Typography;
 function Domain() {
     const [showResult, setShowResult] = useState(false);
     const [uuId, setUuid] = useState('');
     const [domainName, setDomainName] = useState('');
+    const navigate = useNavigate();
+    const onClickSettings = ({key}) => {
+        navigate('admin')
+    }
+
     const onSearch = () => { 
         if(domainName) {
             var config = {
@@ -38,7 +44,7 @@ function Domain() {
                         <code style={{ padding: '15px',fontSize: '18px',background: 'beige', marginBottom: '20px'}}>
                             {`<script src="https://rectantinc/script/${uuId}"></script>`}
                         </code>,
-                        <div>You can view your insights at</div>,
+                        <div>You can view your insights at <Button onClick={onClickSettings}>Click</Button></div>,
                         <code style={{ padding: '15px',fontSize: '18px',background: 'aliceblue', marginTop: '20px'}}>
                             {`https://rectantinc.com/${domainName}`}
                         </code>

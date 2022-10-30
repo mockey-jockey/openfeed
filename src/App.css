@@ -181,3 +181,16 @@
 .site-page-header {
   border-bottom: 1px solid rgb(235, 237, 240);
 }
+
+.selected-feedback {
+  background-color: ghostwhite;
+}
+
+.list-feedback .ant-list-item-meta-description {
+  clear: both;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+}

@@ -7,7 +7,7 @@ const { Title } = Typography;
 function HeaderComponent() {
     const navigate = useNavigate();
     const onClickSettings = ({key}) => {
-        navigate(key)
+        navigate('/'+key)
     }
 
     const handleHeaderClick = () => {
